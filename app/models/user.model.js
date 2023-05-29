@@ -18,10 +18,5 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING,
     },
   });
-
-  User.beforeCreate(async (user) => {
-    user.password = await hashPassword(user.password);
-  });
-
   return User;
 };
