@@ -1,4 +1,3 @@
-const { json } = require("sequelize");
 const db = require("../models/index.model");
 const User = db.user;
 const { hashPassword, comparePassword } = require("../utility/hashUtils");
@@ -29,13 +28,10 @@ exports.getUserById = async (req, res) => {
       },
     });
     if (!user) {
-      return (
-        res.status(400),
-        json({
-          message:
-            "Uh-oh! We couldn't find any user with that ID. 😔🔍 Looks like they're hiding from the disco lights. Keep searching and find a user who's ready to boogie down! 🕺💫",
-        })
-      );
+      return res.status(400).json({
+        message:
+          "Uh-oh! We couldn't find any user with that ID. 😔🔍 Looks like they're hiding from the disco lights. Keep searching and find a user who's ready to boogie down! 🕺💫",
+      });
     }
     res.status(200).json({ data: user });
   } catch (error) {

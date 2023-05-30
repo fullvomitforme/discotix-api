@@ -21,5 +21,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.user = require("../models/user.model")(sequelize, Sequelize);
+db.film = require("../models/film.model")(sequelize, Sequelize);
+db.teater = require("../models/teater.model")(sequelize, Sequelize);
 
 module.exports = db;

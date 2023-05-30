@@ -20,6 +20,9 @@ app.get("/", (req, res) => {
 // User routes
 require("./app/routes/user.routes")(app);
 
+// Film routes
+require("./app/routes/film.routes")(app);
+
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async (error) => {
